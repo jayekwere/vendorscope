@@ -1,0 +1,369 @@
+{
+  "register-vendor": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "name": {
+        "maxLength": 120,
+        "minLength": 3,
+        "title": "Name",
+        "type": "string"
+      },
+      "owner": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Owner",
+        "type": "string"
+      },
+      "service": {
+        "maxLength": 160,
+        "minLength": 5,
+        "title": "Service",
+        "type": "string"
+      },
+      "tier": {
+        "enum": [
+          "critical",
+          "standard"
+        ],
+        "title": "Tier",
+        "type": "string"
+      },
+      "data": {
+        "enum": [
+          "public",
+          "personal",
+          "synthetic-health"
+        ],
+        "title": "Data",
+        "type": "string"
+      },
+      "regions": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 8,
+        "minItems": 1,
+        "title": "Regions",
+        "type": "array"
+      },
+      "subprocessors": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Subprocessors",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "owner",
+      "service",
+      "tier",
+      "data",
+      "regions",
+      "subprocessors"
+    ],
+    "title": "Vendor",
+    "type": "object"
+  },
+  "assess-vendor": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "version": {
+        "maximum": 1000000,
+        "minimum": 1,
+        "title": "Version",
+        "type": "integer"
+      },
+      "encryption": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Encryption"
+      },
+      "access_reviews": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Access Reviews"
+      },
+      "recovery_test": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Recovery Test"
+      },
+      "evidence_sha256": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Evidence Sha256",
+        "type": "string"
+      },
+      "observed_at": {
+        "maxLength": 40,
+        "minLength": 20,
+        "title": "Observed At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "version",
+      "encryption",
+      "access_reviews",
+      "recovery_test",
+      "evidence_sha256",
+      "observed_at"
+    ],
+    "title": "Assessment",
+    "type": "object"
+  },
+  "decide-vendor": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "version": {
+        "maximum": 1000000,
+        "minimum": 1,
+        "title": "Version",
+        "type": "integer"
+      },
+      "assessment_sha256": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Assessment Sha256",
+        "type": "string"
+      },
+      "outcome": {
+        "enum": [
+          "approve",
+          "accept-risk",
+          "reject"
+        ],
+        "title": "Outcome",
+        "type": "string"
+      },
+      "rationale": {
+        "maxLength": 500,
+        "minLength": 20,
+        "title": "Rationale",
+        "type": "string"
+      },
+      "compensation": {
+        "maxLength": 500,
+        "title": "Compensation",
+        "type": "string"
+      },
+      "valid_hours": {
+        "maximum": 2160,
+        "minimum": 1,
+        "title": "Valid Hours",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "id",
+      "version",
+      "assessment_sha256",
+      "outcome",
+      "rationale",
+      "compensation",
+      "valid_hours"
+    ],
+    "title": "Decision",
+    "type": "object"
+  },
+  "change-subprocessors": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "version": {
+        "maximum": 1000000,
+        "minimum": 1,
+        "title": "Version",
+        "type": "integer"
+      },
+      "subprocessors": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Subprocessors",
+        "type": "array"
+      },
+      "regions": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 8,
+        "minItems": 1,
+        "title": "Regions",
+        "type": "array"
+      },
+      "reason": {
+        "maxLength": 500,
+        "minLength": 10,
+        "title": "Reason",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "version",
+      "subprocessors",
+      "regions",
+      "reason"
+    ],
+    "title": "Change",
+    "type": "object"
+  },
+  "offboard-vendor": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "version": {
+        "maximum": 1000000,
+        "minimum": 1,
+        "title": "Version",
+        "type": "integer"
+      },
+      "access_revoked": {
+        "title": "Access Revoked",
+        "type": "boolean"
+      },
+      "data_returned_or_deleted": {
+        "title": "Data Returned Or Deleted",
+        "type": "boolean"
+      },
+      "evidence_sha256": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Evidence Sha256",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "version",
+      "access_revoked",
+      "data_returned_or_deleted",
+      "evidence_sha256"
+    ],
+    "title": "Offboard",
+    "type": "object"
+  },
+  "draft-responses": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "vendor_id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Vendor Id",
+        "type": "string"
+      },
+      "version": {
+        "maximum": 1000000,
+        "minimum": 1,
+        "title": "Version",
+        "type": "integer"
+      },
+      "questions": {
+        "items": {
+          "enum": [
+            "encryption",
+            "access_reviews",
+            "recovery_test"
+          ],
+          "type": "string"
+        },
+        "maxItems": 3,
+        "minItems": 1,
+        "title": "Questions",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "vendor_id",
+      "version",
+      "questions"
+    ],
+    "title": "Questionnaire",
+    "type": "object"
+  },
+  "approve-responses": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "response_sha256": {
+        "pattern": "^[a-f0-9]{64}$",
+        "title": "Response Sha256",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "response_sha256"
+    ],
+    "title": "ResponseReview",
+    "type": "object"
+  },
+  "export-responses": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^[a-z][a-z0-9-]{0,63}$",
+        "title": "Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "title": "Ref",
+    "type": "object"
+  }
+}

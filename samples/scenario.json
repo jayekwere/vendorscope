@@ -1,0 +1,199 @@
+{
+  "intro": "Assess a fictional critical vendor, document accepted risk and invalidate the decision after a subprocessor change.",
+  "steps": [
+    {
+      "id": "vendor",
+      "title": "Register a critical synthetic service provider",
+      "action": "register-vendor",
+      "data": {
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "service": "Synthetic record processing",
+        "tier": "critical",
+        "data": "synthetic-health",
+        "regions": [
+          "CA"
+        ],
+        "subprocessors": [
+          "Maple Lab"
+        ]
+      },
+      "identity": "demo-operator"
+    },
+    {
+      "id": "assessment",
+      "title": "Record a failed recovery safeguard",
+      "action": "assess-vendor",
+      "data": {
+        "id": "cedar",
+        "version": 1,
+        "encryption": true,
+        "access_reviews": true,
+        "recovery_test": false,
+        "evidence_sha256": "9ccb45dd08c969427e8b87de05683025032f97ad573d2a394a2d9b8aaa12dab7",
+        "observed_at": "$now"
+      },
+      "identity": "demo-operator"
+    },
+    {
+      "id": "unsafe",
+      "title": "Reject clean approval with unresolved risk",
+      "action": "decide-vendor",
+      "data": {
+        "id": "cedar",
+        "version": 2,
+        "assessment_sha256": "$assessment.assessment.sha256",
+        "outcome": "approve",
+        "rationale": "Review the documented recovery test deficiency.",
+        "compensation": "",
+        "valid_hours": 24
+      },
+      "identity": "demo-reviewer",
+      "expect_error": 409
+    },
+    {
+      "id": "decision",
+      "title": "Independently accept the bounded residual risk",
+      "action": "decide-vendor",
+      "data": {
+        "id": "cedar",
+        "version": 2,
+        "assessment_sha256": "$assessment.assessment.sha256",
+        "outcome": "accept-risk",
+        "rationale": "Accept the gap while a restore exercise is scheduled.",
+        "compensation": "Retain an independently verified local backup daily.",
+        "valid_hours": 24
+      },
+      "identity": "demo-reviewer"
+    },
+    {
+      "id": "change",
+      "title": "Invalidate the decision after a new subprocessor",
+      "action": "change-subprocessors",
+      "data": {
+        "id": "cedar",
+        "version": 3,
+        "subprocessors": [
+          "Maple Lab",
+          "Birch Lab"
+        ],
+        "regions": [
+          "CA",
+          "US"
+        ],
+        "reason": "A new processing dependency requires reassessment."
+      },
+      "identity": "demo-operator"
+    },
+    {
+      "id": "stale",
+      "title": "Reject a decision bound to the previous version",
+      "action": "decide-vendor",
+      "data": {
+        "id": "cedar",
+        "version": 2,
+        "assessment_sha256": "$assessment.assessment.sha256",
+        "outcome": "approve",
+        "rationale": "Attempt to reuse a previous assessment decision.",
+        "compensation": "",
+        "valid_hours": 24
+      },
+      "identity": "demo-reviewer",
+      "expect_error": 409
+    },
+    {
+      "id": "reassess",
+      "title": "Collect complete replacement evidence",
+      "action": "assess-vendor",
+      "data": {
+        "id": "cedar",
+        "version": 4,
+        "encryption": true,
+        "access_reviews": true,
+        "recovery_test": true,
+        "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+        "observed_at": "$now"
+      },
+      "identity": "demo-operator"
+    },
+    {
+      "id": "clean",
+      "title": "Approve the exact replacement assessment",
+      "action": "decide-vendor",
+      "data": {
+        "id": "cedar",
+        "version": 5,
+        "assessment_sha256": "$reassess.assessment.sha256",
+        "outcome": "approve",
+        "rationale": "The replacement evidence demonstrates each required safeguard.",
+        "compensation": "",
+        "valid_hours": 168
+      },
+      "identity": "demo-reviewer"
+    },
+    {
+      "id": "responses",
+      "title": "Draft customer answers from current approved evidence",
+      "action": "draft-responses",
+      "data": {
+        "id": "questionnaire",
+        "vendor_id": "cedar",
+        "version": 6,
+        "questions": [
+          "encryption",
+          "access_reviews",
+          "recovery_test"
+        ]
+      },
+      "identity": "demo-operator"
+    },
+    {
+      "id": "reviewedresponses",
+      "title": "Independently approve the exact answer set",
+      "action": "approve-responses",
+      "data": {
+        "id": "questionnaire",
+        "response_sha256": "$responses.response_sha256"
+      },
+      "identity": "demo-reviewer"
+    },
+    {
+      "id": "exportedresponses",
+      "title": "Export approved evidence-linked responses",
+      "action": "export-responses",
+      "data": {
+        "id": "questionnaire"
+      },
+      "identity": "demo-auditor"
+    },
+    {
+      "id": "subprocessorchange",
+      "title": "Invalidate response export after processing changes",
+      "action": "change-subprocessors",
+      "data": {
+        "id": "cedar",
+        "version": 6,
+        "subprocessors": [
+          "Maple Lab",
+          "New Synthetic Processor"
+        ],
+        "regions": [
+          "CA"
+        ],
+        "reason": "New downstream provider requires replacement assessment."
+      },
+      "identity": "demo-operator"
+    },
+    {
+      "id": "blockedexport",
+      "title": "Reject stale customer assurance responses",
+      "action": "export-responses",
+      "data": {
+        "id": "questionnaire"
+      },
+      "identity": "demo-auditor",
+      "expect_error": 409
+    }
+  ]
+}

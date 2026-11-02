@@ -1,0 +1,6 @@
+{
+  "synthetic": true,
+  "encryption": true,
+  "access_reviews": true,
+  "recovery_test": false
+}

@@ -1,0 +1,534 @@
+{
+  "mode": "synthetic-offline",
+  "transcript": [
+    {
+      "step": "Register a critical synthetic service provider",
+      "result": {
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "service": "Synthetic record processing",
+        "tier": "critical",
+        "data": "synthetic-health",
+        "regions": [
+          "CA"
+        ],
+        "subprocessors": [
+          "Maple Lab"
+        ],
+        "version": 1,
+        "status": "due-diligence",
+        "registered_by": "alex",
+        "assessment": null,
+        "decision": null
+      }
+    },
+    {
+      "step": "Record a failed recovery safeguard",
+      "result": {
+        "assessment": {
+          "id": "cedar",
+          "version": 1,
+          "encryption": true,
+          "access_reviews": true,
+          "recovery_test": false,
+          "evidence_sha256": "9ccb45dd08c969427e8b87de05683025032f97ad573d2a394a2d9b8aaa12dab7",
+          "observed_at": "2026-11-01T12:00:00Z",
+          "assessed_by": "alex",
+          "findings": [
+            {
+              "control": "recovery_test",
+              "state": "failed",
+              "reason": "Evidence missing or safeguard not demonstrated"
+            }
+          ],
+          "vendor_version": 1,
+          "sha256": "177a4f5b26fcfc99cf567cf719cd2fbefb257e08ddaf891e5c853d9bdf797018"
+        },
+        "data": "synthetic-health",
+        "decision": null,
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "regions": [
+          "CA"
+        ],
+        "registered_by": "alex",
+        "service": "Synthetic record processing",
+        "status": "awaiting-decision",
+        "subprocessors": [
+          "Maple Lab"
+        ],
+        "tier": "critical",
+        "version": 2
+      }
+    },
+    {
+      "step": "Reject clean approval with unresolved risk",
+      "expected_denial": 409,
+      "reason": "Unresolved or missing controls require explicit risk acceptance"
+    },
+    {
+      "step": "Independently accept the bounded residual risk",
+      "result": {
+        "assessment": {
+          "access_reviews": true,
+          "assessed_by": "alex",
+          "encryption": true,
+          "evidence_sha256": "9ccb45dd08c969427e8b87de05683025032f97ad573d2a394a2d9b8aaa12dab7",
+          "findings": [
+            {
+              "control": "recovery_test",
+              "reason": "Evidence missing or safeguard not demonstrated",
+              "state": "failed"
+            }
+          ],
+          "id": "cedar",
+          "observed_at": "2026-11-01T12:00:00Z",
+          "recovery_test": false,
+          "sha256": "177a4f5b26fcfc99cf567cf719cd2fbefb257e08ddaf891e5c853d9bdf797018",
+          "vendor_version": 1,
+          "version": 1
+        },
+        "data": "synthetic-health",
+        "decision": {
+          "id": "cedar",
+          "version": 2,
+          "assessment_sha256": "177a4f5b26fcfc99cf567cf719cd2fbefb257e08ddaf891e5c853d9bdf797018",
+          "outcome": "accept-risk",
+          "rationale": "Accept the gap while a restore exercise is scheduled.",
+          "compensation": "Retain an independently verified local backup daily.",
+          "valid_hours": 24,
+          "reviewer": "blair",
+          "decided_at": "2026-11-01T12:00:00Z",
+          "expires_at": "2026-11-02T12:00:00+00:00"
+        },
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "regions": [
+          "CA"
+        ],
+        "registered_by": "alex",
+        "service": "Synthetic record processing",
+        "status": "risk-accepted",
+        "subprocessors": [
+          "Maple Lab"
+        ],
+        "tier": "critical",
+        "version": 3
+      }
+    },
+    {
+      "step": "Invalidate the decision after a new subprocessor",
+      "result": {
+        "assessment": null,
+        "data": "synthetic-health",
+        "decision": null,
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "regions": [
+          "CA",
+          "US"
+        ],
+        "registered_by": "alex",
+        "service": "Synthetic record processing",
+        "status": "reassessment-required",
+        "subprocessors": [
+          "Maple Lab",
+          "Birch Lab"
+        ],
+        "tier": "critical",
+        "version": 4
+      }
+    },
+    {
+      "step": "Reject a decision bound to the previous version",
+      "expected_denial": 409,
+      "reason": "Record version changed"
+    },
+    {
+      "step": "Collect complete replacement evidence",
+      "result": {
+        "assessment": {
+          "id": "cedar",
+          "version": 4,
+          "encryption": true,
+          "access_reviews": true,
+          "recovery_test": true,
+          "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+          "observed_at": "2026-11-01T12:00:00Z",
+          "assessed_by": "alex",
+          "findings": [],
+          "vendor_version": 4,
+          "sha256": "c5bf661b34d4e71c1d600b9dc684e66b566e2ef6e7a4210fb1e414dc1638fd35"
+        },
+        "data": "synthetic-health",
+        "decision": null,
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "regions": [
+          "CA",
+          "US"
+        ],
+        "registered_by": "alex",
+        "service": "Synthetic record processing",
+        "status": "awaiting-decision",
+        "subprocessors": [
+          "Maple Lab",
+          "Birch Lab"
+        ],
+        "tier": "critical",
+        "version": 5
+      }
+    },
+    {
+      "step": "Approve the exact replacement assessment",
+      "result": {
+        "assessment": {
+          "access_reviews": true,
+          "assessed_by": "alex",
+          "encryption": true,
+          "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+          "findings": [],
+          "id": "cedar",
+          "observed_at": "2026-11-01T12:00:00Z",
+          "recovery_test": true,
+          "sha256": "c5bf661b34d4e71c1d600b9dc684e66b566e2ef6e7a4210fb1e414dc1638fd35",
+          "vendor_version": 4,
+          "version": 4
+        },
+        "data": "synthetic-health",
+        "decision": {
+          "id": "cedar",
+          "version": 5,
+          "assessment_sha256": "c5bf661b34d4e71c1d600b9dc684e66b566e2ef6e7a4210fb1e414dc1638fd35",
+          "outcome": "approve",
+          "rationale": "The replacement evidence demonstrates each required safeguard.",
+          "compensation": "",
+          "valid_hours": 168,
+          "reviewer": "blair",
+          "decided_at": "2026-11-01T12:00:00Z",
+          "expires_at": "2026-11-08T12:00:00+00:00"
+        },
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "regions": [
+          "CA",
+          "US"
+        ],
+        "registered_by": "alex",
+        "service": "Synthetic record processing",
+        "status": "approved",
+        "subprocessors": [
+          "Maple Lab",
+          "Birch Lab"
+        ],
+        "tier": "critical",
+        "version": 6
+      }
+    },
+    {
+      "step": "Draft customer answers from current approved evidence",
+      "result": {
+        "id": "questionnaire",
+        "vendor_id": "cedar",
+        "version": 6,
+        "questions": [
+          "encryption",
+          "access_reviews",
+          "recovery_test"
+        ],
+        "drafted_by": "alex",
+        "assessment_sha256": "c5bf661b34d4e71c1d600b9dc684e66b566e2ef6e7a4210fb1e414dc1638fd35",
+        "answers": [
+          {
+            "question": "encryption",
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096"
+          },
+          {
+            "question": "access_reviews",
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096"
+          },
+          {
+            "question": "recovery_test",
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096"
+          }
+        ],
+        "status": "draft",
+        "response_sha256": "b3d332e20c99b9eb335440b7bbc74d3113eccbf076ec989ec86d1cb600d26e2a"
+      }
+    },
+    {
+      "step": "Independently approve the exact answer set",
+      "result": {
+        "answers": [
+          {
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+            "question": "encryption"
+          },
+          {
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+            "question": "access_reviews"
+          },
+          {
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+            "question": "recovery_test"
+          }
+        ],
+        "assessment_sha256": "c5bf661b34d4e71c1d600b9dc684e66b566e2ef6e7a4210fb1e414dc1638fd35",
+        "drafted_by": "alex",
+        "id": "questionnaire",
+        "questions": [
+          "encryption",
+          "access_reviews",
+          "recovery_test"
+        ],
+        "response_sha256": "b3d332e20c99b9eb335440b7bbc74d3113eccbf076ec989ec86d1cb600d26e2a",
+        "status": "approved",
+        "vendor_id": "cedar",
+        "version": 6,
+        "approved_by": "blair"
+      }
+    },
+    {
+      "step": "Export approved evidence-linked responses",
+      "result": {
+        "answers": [
+          {
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+            "question": "encryption"
+          },
+          {
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+            "question": "access_reviews"
+          },
+          {
+            "answer": "yes",
+            "evidence_sha256": "f51263442a4cb7cd51d726319cf0961a24df4153a8a3f3bbf1f042fe81aac096",
+            "question": "recovery_test"
+          }
+        ],
+        "approved_by": "blair",
+        "assessment_sha256": "c5bf661b34d4e71c1d600b9dc684e66b566e2ef6e7a4210fb1e414dc1638fd35",
+        "drafted_by": "alex",
+        "id": "questionnaire",
+        "questions": [
+          "encryption",
+          "access_reviews",
+          "recovery_test"
+        ],
+        "response_sha256": "b3d332e20c99b9eb335440b7bbc74d3113eccbf076ec989ec86d1cb600d26e2a",
+        "status": "approved",
+        "vendor_id": "cedar",
+        "version": 6
+      }
+    },
+    {
+      "step": "Invalidate response export after processing changes",
+      "result": {
+        "assessment": null,
+        "data": "synthetic-health",
+        "decision": null,
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "regions": [
+          "CA"
+        ],
+        "registered_by": "alex",
+        "service": "Synthetic record processing",
+        "status": "reassessment-required",
+        "subprocessors": [
+          "Maple Lab",
+          "New Synthetic Processor"
+        ],
+        "tier": "critical",
+        "version": 7
+      }
+    },
+    {
+      "step": "Reject stale customer assurance responses",
+      "expected_denial": 409,
+      "reason": "Questionnaire evidence changed or expired"
+    }
+  ],
+  "summary": {
+    "vendors": [
+      {
+        "assessment": null,
+        "data": "synthetic-health",
+        "decision": null,
+        "id": "cedar",
+        "name": "Cedar Synthetic Services",
+        "owner": "platform",
+        "regions": [
+          "CA"
+        ],
+        "registered_by": "alex",
+        "service": "Synthetic record processing",
+        "status": "reassessment-required",
+        "subprocessors": [
+          "Maple Lab",
+          "New Synthetic Processor"
+        ],
+        "tier": "critical",
+        "version": 7
+      }
+    ],
+    "attention": [
+      "cedar"
+    ],
+    "evidence_trust": "operator_reviewed_documents_not_independent_vendor_verification"
+  },
+  "evidence": {
+    "tenant": "alder",
+    "integrity": "verified_local_chain",
+    "checkpoint": "7b6cd18601235bcef8b1297a2e098340b96d6bdaf60d99741cdc9624b2913d05",
+    "events": [
+      {
+        "payload": {
+          "action": "register-vendor",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "31d4a8818707231bfa1ee8102c08a469870cfe7871b83e23c84ab40a4fe891ae",
+          "result_sha256": "dce4a617aaad753e334efbbe28d834f77dd4f9c4cb647aea9aaa73c52001cd1f",
+          "subject": "alex",
+          "tenant": "alder"
+        },
+        "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+        "hash": "8b26c432768348c8931290ce092fdc6a500f694e635d1eb7d11b403ca9e60e87"
+      },
+      {
+        "payload": {
+          "action": "assess-vendor",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "dfe468e974272de1fa5f2c6d3c4a47059397b8d94622c64cf8fd660d4e48ef61",
+          "result_sha256": "78ebf064411e6243fb1ca150364aff7326666c2d13cb83a94d82ceaa57f62668",
+          "subject": "alex",
+          "tenant": "alder"
+        },
+        "previous": "8b26c432768348c8931290ce092fdc6a500f694e635d1eb7d11b403ca9e60e87",
+        "hash": "5dfbec7420851566f33fc7c4c3e6e0788ebea47b0801a3a74b5c03b52d916234"
+      },
+      {
+        "payload": {
+          "action": "decide-vendor",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "dedc0e3f94123c246fe5d03761f6205206b04bfe2666c47f7b3dedd0e43ee294",
+          "result_sha256": "383a9bbf9216b84545968f5b4dd3188b536359f9e5281bede6b321213a8ae8d7",
+          "subject": "blair",
+          "tenant": "alder"
+        },
+        "previous": "5dfbec7420851566f33fc7c4c3e6e0788ebea47b0801a3a74b5c03b52d916234",
+        "hash": "65f20c36665f7e32e9d079e4d1b1f0d75c39a7770b5b0e6c55535671067b9298"
+      },
+      {
+        "payload": {
+          "action": "change-subprocessors",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "e9d2e7f5da9717b643b131c97ed050978149af46f6a5d69e26570e5b6a2f9cb9",
+          "result_sha256": "df50d9081d4fd78ded9dfb4bffdd87007aec728a991cc7466d37435d732f16c0",
+          "subject": "alex",
+          "tenant": "alder"
+        },
+        "previous": "65f20c36665f7e32e9d079e4d1b1f0d75c39a7770b5b0e6c55535671067b9298",
+        "hash": "f47e242ed26d787bbae0d35ccf093ee248282c5821997b1cde6a9be9d7dcfd18"
+      },
+      {
+        "payload": {
+          "action": "assess-vendor",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "a8431b2ac4235e376bbd70e1ca357ac21cd5ad9887e0bcfcf5867571e15cf2eb",
+          "result_sha256": "30da9596bc7d76b883e9ddac7d70503fff48153e90fefeb4a041c3eb3d2b9338",
+          "subject": "alex",
+          "tenant": "alder"
+        },
+        "previous": "f47e242ed26d787bbae0d35ccf093ee248282c5821997b1cde6a9be9d7dcfd18",
+        "hash": "f5ed26a86729333c1fcdf589dd67b60402b3d8637b6d585f2ed25ee0c3f38ba4"
+      },
+      {
+        "payload": {
+          "action": "decide-vendor",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "7aed8859a4e428f64e4e5b43c5fe13e3b6d6ee7f86cb2ac63366f7305c3cca79",
+          "result_sha256": "bdcfc1189d14a6ebddd507ecb4b9bfbb9821d0e520244d8374a920b5e162a0d1",
+          "subject": "blair",
+          "tenant": "alder"
+        },
+        "previous": "f5ed26a86729333c1fcdf589dd67b60402b3d8637b6d585f2ed25ee0c3f38ba4",
+        "hash": "4456eb87945d6dda0b6d15ed51fe6ba841755482c9429c6e93bf1d084fdb454c"
+      },
+      {
+        "payload": {
+          "action": "draft-responses",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "881f1f16349b7ff61a1c27d75a305d3d619ad887a506fcac7a853a1ca3ebf79c",
+          "result_sha256": "9ce434c3fc9b1598c1893fb5408bce5ff957ddea857486b5e7d46e503e4b35b5",
+          "subject": "alex",
+          "tenant": "alder"
+        },
+        "previous": "4456eb87945d6dda0b6d15ed51fe6ba841755482c9429c6e93bf1d084fdb454c",
+        "hash": "775fe4962698fe90f0b7bd35eb7783ef585c348a5b17b5cede80aadcef5b9e53"
+      },
+      {
+        "payload": {
+          "action": "approve-responses",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "88fb9f509d197486c5d27274a927f188252f3302a2feaec7f97ea80a731aa363",
+          "result_sha256": "571e611fc8db062e1d6df9157b62361d7f2e1e831e33c88cb09a0a0072478733",
+          "subject": "blair",
+          "tenant": "alder"
+        },
+        "previous": "775fe4962698fe90f0b7bd35eb7783ef585c348a5b17b5cede80aadcef5b9e53",
+        "hash": "8750693ed82ec826fb118406a1c8bc490e2b1202e1a3f625faeef9ef9bbd936f"
+      },
+      {
+        "payload": {
+          "action": "export-responses",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "348bfe84dcd8f9f85a55bac5b90997edc044267d32633b2294b24837b8afb7eb",
+          "result_sha256": "571e611fc8db062e1d6df9157b62361d7f2e1e831e33c88cb09a0a0072478733",
+          "subject": "casey",
+          "tenant": "alder"
+        },
+        "previous": "8750693ed82ec826fb118406a1c8bc490e2b1202e1a3f625faeef9ef9bbd936f",
+        "hash": "367803065e74673a8236ad04cd3771133d34408671241db762aab628ec733cab"
+      },
+      {
+        "payload": {
+          "action": "change-subprocessors",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "6679cde5b544172a81b950e6139ad632319b2d36faec11b3bd33ba2e6116e5fa",
+          "result_sha256": "65c241dccb6fc582ccdb47b0e52c70ee8a3fa3e23f608637d7b65056d26520a6",
+          "subject": "alex",
+          "tenant": "alder"
+        },
+        "previous": "367803065e74673a8236ad04cd3771133d34408671241db762aab628ec733cab",
+        "hash": "6259f128d8b1229e5679b7911ab128261dd718e914cb2610c3e14c3d8c13ff60"
+      },
+      {
+        "payload": {
+          "action": "read-summary",
+          "at": "2026-11-01T12:00:00Z",
+          "request_sha256": "d7b149571eead77610e840d582a19bb9543143d5009358463fb0f3423f4d4067",
+          "result_sha256": "67f217ddd4d16bf0112d884427c5d51f3aafaa3b53caad34524b5f0ed067d3af",
+          "subject": "blair",
+          "tenant": "alder"
+        },
+        "previous": "6259f128d8b1229e5679b7911ab128261dd718e914cb2610c3e14c3d8c13ff60",
+        "hash": "7b6cd18601235bcef8b1297a2e098340b96d6bdaf60d99741cdc9624b2913d05"
+      }
+    ]
+  }
+}
