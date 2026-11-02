@@ -1,7 +1,7 @@
 {
   "project": "vendorscope",
   "verification_date": "2026-11-01",
-  "python_tests": 13,
+  "python_tests": 17,
   "python_statement_branch_coverage_percent": 89.02,
   "python_coverage_scope": "entire app package, including startup and optional collectors",
   "typescript_tests": 2,
@@ -38,5 +38,6 @@
     "actions": 8,
     "strict_extra_fields": "forbidden"
   },
-  "sample_sha256": "bed22cc0ddb1edb0897fc92e185515926368c7d9940b49c75cf0b8b93a13a24e"
+  "sample_sha256": "bed22cc0ddb1edb0897fc92e185515926368c7d9940b49c75cf0b8b93a13a24e",
+  "public_artifact_boundary": "explicit file allowlist, private test state excluded, marker rejection and guarded upload"
 }
